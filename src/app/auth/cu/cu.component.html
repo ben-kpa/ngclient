@@ -1,0 +1,7 @@
+<div *ngIf="authService.authStore.token!==''">{{authService.authStore | json}}</div>
+
+<a routerLink="/">Home</a>
+
+<a *ngIf="!authService.isAuthenticated" routerLink="/lg">Login</a>
+
+<button *ngIf="authService.isAuthenticated" (click)="onLogout()">Logout</button>
