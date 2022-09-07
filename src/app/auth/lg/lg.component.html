@@ -1,0 +1,45 @@
+<div *ngIf="resError">
+    <p>{{resError}}</p>
+</div>
+
+<div *ngIf="isLoading">
+    <p>Loading...</p>
+</div>
+
+<form
+    #authForm="ngForm"
+    (ngSubmit)="onSubmitLogin(authForm)"
+    *ngIf="!isLoading"
+>
+
+    <label>E-mail
+        <input
+                type="email"
+                id="email"
+                class="form-control"
+                ngModel
+                name="email"
+                required
+                email
+        /></label>
+    <br>
+    <label>Password
+        <input
+                type="password"
+                id="password"
+                class="form-control"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+        /></label>
+    <br>
+    <button
+            type="submit"
+            [disabled]="!authForm.valid"
+    >
+        Login
+    </button>
+</form>
+
+<p>Don't have an account? Register <a routerLink="/rg">here</a></p>
